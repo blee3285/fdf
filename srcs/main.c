@@ -6,14 +6,34 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/08/06 15:57:50 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/09 19:00:42 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+int	print_A(int key, void *param)
+{
+	void	*z;
+
+	z = param;
+	ft_putnbr(key);
+	ft_putchar(' ');
+	if (key == 53)
+		exit(0);
+	return (0);
+}
+
+
 int	main()
 {
-	ft_printf("TEST\n");
+	void	*mlx_ptr;
+	void	*win_ptr;
+
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "test");
+	mlx_key_hook(win_ptr, &print_A, (void *)0);
+	mlx_mouse_hook(win_ptr, &print_A, (void *)0);
+	mlx_loop(mlx_ptr);
 	return (0);
 }
