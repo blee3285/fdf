@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/08/14 17:55:08 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/16 14:53:42 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,19 @@ int	print_A(int key, void *param)
 }
 
 
-int	main()
+int	main(int ac, char **av)
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
 	int		color;
 	//void	*img;
 	
+	if (ac == 2)
+	{
+		//read_file(av[1]);
+	}
+	else
+		return (0);
 	color = 0;
 	color += 255;
 	color = color << 8;
