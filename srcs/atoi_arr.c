@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 18:22:42 by blee              #+#    #+#             */
-/*   Updated: 2018/08/16 19:06:24 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/22 15:36:28 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		valid_line(char *line)
 	int		i;
 
 	i = 0;
-	while (line[i])
+	while (line[i] && line[i] != '\n')
 	{
 		if (line[i] == '-' && (!line[i + 1] || line[i + 1] == '-'))
 			return (0);
@@ -37,7 +37,7 @@ int		num_count(char *line)
 
 	i = 0;
 	count = 0;
-	while (line[i])
+	while (line[i] && line != '\n')
 	{
 		if (line[i] && line[i] != ' ')
 		{
@@ -64,7 +64,7 @@ int		*atoi_arr(char *line)
 	arr = (int*)malloc(sizeof(int) * (num_count(line) + 1));
 	if (!arr)
 		return (NULL);
-	while (*temp)
+	while (*temp && *temp != '\n')
 	{
 		if (*temp == '-' || ft_isdigit(*temp))
 		{

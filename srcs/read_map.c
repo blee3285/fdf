@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:27:50 by blee              #+#    #+#             */
-/*   Updated: 2018/08/16 19:12:33 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/22 17:24:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_map_lst	*new_map_lst(char *line)
 	return (new);
 }
 
-void	add_map_lst(t_map_lst *lst, char *line)
+void		add_map_lst(t_map_lst *lst, char *line)
 {
 	t_map_lst	*new;
 	t_map_lst	*temp;
@@ -39,7 +39,7 @@ void	add_map_lst(t_map_lst *lst, char *line)
 	}
 }
 
-int		**read_map(char *file)
+t_map_lst	*read_map(char *file)
 {
 	t_map_lst	*lst;
 	int			fd;
@@ -58,5 +58,5 @@ int		**read_map(char *file)
 		add_map_lst(lst, buff);
 		free(buff);
 	}
-	//return (function that takes the list and returns int arr);
+	return (lst);
 }
