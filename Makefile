@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/01 18:08:58 by blee              #+#    #+#              #
-#    Updated: 2018/08/06 18:55:14 by blee             ###   ########.fr        #
+#    Updated: 2018/08/27 15:09:43 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ MLX = ./mlx/libmlx.a
 LIB = -L ./libft -L ./mlx -lft -lmlx
 FRAME = -framework OpenGL -framework Appkit
 
-SRC_FILES = main.c
+SRC_FILES = main.c \
+			atoi_arr.c \
+			read_map.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

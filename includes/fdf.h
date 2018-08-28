@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/08/16 17:11:42 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/27 15:25:33 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@
 # include "../mlx/mlx.h"
 # include <math.h>
 
-typedef struct		s_data
-{
-
-}					t_data;
-
 typedef struct			s_map_lst
 {
 	int					*line;
-	struct s_map_line	*next;
+	int					size;
+	struct s_map_lst	*next;
 }						t_map_lst;
+
+typedef struct			s_data
+{
+	t_map_lst			*map;
+	int					size;
+}						t_data;
+
+t_map_lst				*read_map(char *file);
+int						*atoi_arr(char *line, int *size);
 
 #endif
