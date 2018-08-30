@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:27:50 by blee              #+#    #+#             */
-/*   Updated: 2018/08/27 19:44:58 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/29 17:21:46 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_map_lst	*new_map_lst(char *line)
 	size = 0;
 	new->line = atoi_arr(line, &size);
 	new->size = size;
-	ft_printf("%s\n", new->line);
 	return (new);
 }
 

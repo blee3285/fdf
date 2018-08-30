@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 18:22:42 by blee              #+#    #+#             */
-/*   Updated: 2018/08/27 19:31:59 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/29 17:20:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int		valid_line(char *line)
 	{
 		valid = 0;
 		if (line[i] == '-' && (!line[i + 1] || line[i + 1] == '-'))
-			return (0);
-		if (line[i] == ' ' && (!line[i + 1] || line[i + 1] == ' '))
 			return (0);
 		if (line[i] == '-' || line[i] == ' ' || ft_isdigit(line[i]))
 			valid = 1;
@@ -65,6 +63,7 @@ int		*atoi_arr(char *line, int *size)
 	temp = line;
 	if (!valid_line(line))
 	{
+		ft_printf("AAA\n");
 		return (NULL);
 	}
 	*size = num_count(line);

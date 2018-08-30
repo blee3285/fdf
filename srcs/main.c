@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/08/27 19:39:54 by blee             ###   ########.fr       */
+/*   Updated: 2018/08/29 18:46:39 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,30 @@ void	print_map(t_map_lst *map)
 		//ft_printf("AAA\n");
 		while (i < map->size)
 		{
-			ft_putnbr(map->line[i]);
+			ft_printf("%d ", map->line[i]);
 			i++;
 		}
+		ft_putchar('\n');
 		map = map->next;
 	}
 }
 
 int		main(int ac, char **av)
 {
-	//void	*mlx_ptr;
-	//void	*win_ptr;
+	//void		*mlx_ptr;
+	//void		*win_ptr;
 	//int		color;
-	//void	*img;
+	//void		*img;
 	t_map_lst	*map;
-	int		i;
+	int			i;
+	//int			*line;
 
 	i = 0;
+	map = NULL;
 	if (ac == 2)
 	{
 		map = read_map(av[1]);
+		print_map(map);
 	}
 	else
 		return (0);
