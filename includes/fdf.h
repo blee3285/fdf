@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/09/11 19:06:53 by blee             ###   ########.fr       */
+/*   Updated: 2018/09/27 19:07:51 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,36 @@ typedef struct			s_map_lst
 	struct s_map_lst	*next;
 }						t_map_lst;
 
+/*
 typedef struct			s_map_arr
 {
 	int					**map;
 	int					x_size;
 	int					y_size;
 }						t_map_arr;
+*/
 
-typedef	struct			s_pxls
+typedef	struct			s_pxl
 {
+	int					x_start;
+	int					y_start;
+	int					z_start;
 	int					x;
 	int					y;
-}						t_pxls;	
+	int					z;
+}						t_pxl;	
 
 typedef struct			s_data
 {
-	t_map_arr			**map;
-	t_pxls				**pxls;
+	int					**map;
+	t_pxls				**pxl;
 	int					x_size;
 	int					y_size;
-	int					zoom;
-	int					height;
+	int					h_mod
+	int					s_mod;
+	int					x_ag;
+	int					y_ag;
+	int					z_ag;
 }						t_data;
 
 t_map_lst				*read_map(char *file);
