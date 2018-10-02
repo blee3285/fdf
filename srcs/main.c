@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/09/04 17:29:38 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/01 18:26:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ void	print_map(t_map_lst *map)
 	}
 }
 
-void	print_maparr(t_map_arr *map)
+void	print_maparr(t_data *data)
 {
 	int		x;
 	int		y;
 
 	x = 0;
 	y = 0;
-	while (y < map->y_size)
+	while (y < data->y_size)
 	{
 		x = 0;
-		while (x < map->x_size)
+		while (x < data->x_size)
 		{
-			ft_printf("%d ", map->map[y][x]);
+			ft_printf("%d ", data->map[y][x]);
 			x++;
 		}
 		ft_putchar('\n');
@@ -68,17 +68,20 @@ int		main(int ac, char **av)
 	//void		*win_ptr;
 	//int		color;
 	//void		*img;
-	t_map_lst	*map;
 	int			i;
-	t_map_arr	*map_arr;
+	t_data		*data;
 
 	i = 0;
-	map = NULL;
+	data = (t_data*)malloc(sizeof(t_data));
+	data->x_size = 0;
+	data->y_size = 0;
 	if (ac == 2)
 	{
-		map = read_map(av[1]);
-		map_arr = lst_to_arr(map);
-		print_maparr(map_arr);
+		map_size(data, av[1]);
+		ft_printf("x size: %d\n", data->x_size);
+		ft_printf("y size: %d\n", data->y_size);
+		read_map(data, av[1]);
+		print_maparr(data);
 	}
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 18:22:42 by blee              #+#    #+#             */
-/*   Updated: 2018/08/29 17:20:30 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/01 18:28:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		num_count(char *line)
 	return (count);
 }
 
-int		*atoi_arr(char *line, int *size)
+int		*atoi_arr(char *line, int size)
 {
 	int		*arr;
 	int		i;
@@ -62,12 +62,8 @@ int		*atoi_arr(char *line, int *size)
 	i = 0;
 	temp = line;
 	if (!valid_line(line))
-	{
-		ft_printf("AAA\n");
 		return (NULL);
-	}
-	*size = num_count(line);
-	arr = (int*)malloc(sizeof(int) * (*size + 1));
+	arr = (int*)malloc(sizeof(int) * (size + 1));
 	if (!arr)
 		return (NULL);
 	while (*temp && *temp != '\n')

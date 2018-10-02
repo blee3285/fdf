@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/01 18:08:58 by blee              #+#    #+#              #
-#    Updated: 2018/09/04 16:08:42 by blee             ###   ########.fr        #
+#    Updated: 2018/10/01 16:47:42 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ FRAME = -framework OpenGL -framework Appkit
 SRC_FILES = main.c \
 			atoi_arr.c \
 			read_map.c \
+			map_size.c \
 			lst_to_arr.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))

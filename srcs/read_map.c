@@ -6,12 +6,12 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:27:50 by blee              #+#    #+#             */
-/*   Updated: 2018/08/29 17:21:46 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/01 18:30:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
+/*
 t_map_lst	*new_map_lst(char *line)
 {
 	t_map_lst	*new;
@@ -41,7 +41,8 @@ void		add_map_lst(t_map_lst **lst, char *line)
 		temp->next = new;
 	}
 }
-
+*/
+/*
 t_map_lst	*read_map(char *file)
 {
 	t_map_lst	*lst;
@@ -64,4 +65,31 @@ t_map_lst	*read_map(char *file)
 		free(buff);
 	}
 	return (lst);
+}
+*/
+
+
+void	read_map(t_data *data, char *file)
+{
+	int		fd;
+	int		out;
+	int		i;
+	char	*buff;
+
+	i = 0;
+	fd = open(file, O_RDONLY);
+	//check fd here
+	data->map = (int**)malloc(sizeof(int*) * (data->y_size));
+	while ((out = get_next_line(fd, &buff)))
+	{
+		if (out == -1)
+		{
+			if (buff)
+				free(buff);
+			return ;
+		}
+		data->map[i] = atoi_arr(buff, data->x_size);
+		i++;
+	}
+	close(fd);
 }
