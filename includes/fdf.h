@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/10/01 18:28:49 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/03 17:43:02 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ typedef struct			s_map_arr
 
 typedef	struct			s_pxl
 {
-	int					x_start;
-	int					y_start;
-	int					z_start;
+	int					x_init;
+	int					y_init;
+	int					z_init;
 	int					x;
 	int					y;
 	int					z;
@@ -44,20 +44,19 @@ typedef	struct			s_pxl
 
 typedef struct			s_data
 {
-	int					**map;
-	t_pxl				**pxl;
+	t_pxl				***pxl;
 	int					x_size;
 	int					y_size;
 	int					h_mod;
 	int					s_mod;
-	int					x_ag;
-	int					y_ag;
-	int					z_ag;
+	int					x_deg;
+	int					y_deg;
+	int					z_deg;
 }						t_data;
 
 void					read_map(t_data *data, char *file);
 int						*atoi_arr(char *line, int size);
-t_map_arr				*lst_to_arr(t_map_lst *lst);
+t_pxl					**pxl_arr(t_data *data, char *line, int y);
 void					map_size(t_data *data, char *file);
 
 #endif

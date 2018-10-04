@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 18:22:42 by blee              #+#    #+#             */
-/*   Updated: 2018/10/01 18:28:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/03 17:04:39 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,46 @@ int		*atoi_arr(char *line, int size)
 			temp++;
 	}
 	return (arr);
+}
+
+t_pxl	*new_pxl(t_data *data, int height, int x, int y)
+{
+	t_pxl	*new;
+
+	new = (t_pxl*)malloc(sizeof(t_pxl));
+	new->x_init = x - (data->x_size / 2);
+	new->y_init = y - (data->y_size / 2);
+	new->z_init = height;
+	new->x = 0;
+	new->y = 0;
+	new->z = 0;
+	return (new);
+}
+
+t_pxl	**pxl_arr(t_data *data, char *line, int y)
+{
+	t_pxl	**pxls;
+	int		i;
+	char	*temp;
+
+	i = 0;
+	temp = line;
+	if (!valid_line(line))
+		return (NULL);
+	pxls = (t_pxl**)malloc(sizeof(t_pxl*) * (data->x_size + 1));
+	if (!pxls)
+		return (NULL);
+	while (*temp && *temp != '\n')
+	{
+		if (*temp == '-' || ft_isdigit(*temp))
+		{
+			pxls[i] = new_pxl(data, ft_atoi(temp), i, y);
+			while(*temp == '-' || ft_isdigit(*temp))
+				temp++;
+			i++;
+		}
+		if(*temp && *temp != '\n')
+			temp++;
+	}
+	return (pxls);
 }

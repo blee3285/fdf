@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/10/01 18:26:36 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/03 18:04:42 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,6 @@ int		print_A(int key, void *param)
 	return (0);
 }
 
-void	print_map(t_map_lst *map)
-{
-	int		i;
-	
-	while (map)
-	{
-		i = 0;
-		//ft_printf("AAA\n");
-		while (i < map->size)
-		{
-			ft_printf("%d ", map->line[i]);
-			i++;
-		}
-		ft_putchar('\n');
-		map = map->next;
-	}
-}
-
 void	print_maparr(t_data *data)
 {
 	int		x;
@@ -54,7 +36,7 @@ void	print_maparr(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->map[y][x]);
+			ft_printf("%d ", data->pxl[y][x]->y_init);
 			x++;
 		}
 		ft_putchar('\n');
@@ -83,11 +65,8 @@ int		main(int ac, char **av)
 		read_map(data, av[1]);
 		print_maparr(data);
 	}
-	else
-		return (0);
-	//print_map(map);
 	/*
-	colore= 0;
+	color = 0;
 	color += 255;
 	color = color << 8;
 	color += 255;
