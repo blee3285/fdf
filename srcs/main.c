@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/10/03 18:04:42 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/09 17:21:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,35 @@ void	print_maparr(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->pxl[y][x]->y_init);
+			ft_printf("%d ", data->pxl[y][x]->z_init);
+			resize_pxl(data->pxl[y][x], 2, 2);
 			x++;
 		}
 		ft_putchar('\n');
 		y++;
 	}
 }
+
+void	print_maparr2(t_data *data)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	y = 0;
+	while (y < data->y_size)
+	{
+		x = 0;
+		while (x < data->x_size)
+		{
+			ft_printf("%d ", data->pxl[y][x]->z);
+			x++;
+		}
+		ft_putchar('\n');
+		y++;
+	}
+}
+
 
 int		main(int ac, char **av)
 {
@@ -64,6 +86,8 @@ int		main(int ac, char **av)
 		ft_printf("y size: %d\n", data->y_size);
 		read_map(data, av[1]);
 		print_maparr(data);
+		ft_putchar('\n');
+		print_maparr2(data);
 	}
 	/*
 	color = 0;

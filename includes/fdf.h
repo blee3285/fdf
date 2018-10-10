@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/10/03 17:43:02 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/09 19:13:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef	struct			s_pxl
 	int					x;
 	int					y;
 	int					z;
+	int					x_win;
+	int					y_win;
 }						t_pxl;	
 
 typedef struct			s_data
@@ -47,8 +49,8 @@ typedef struct			s_data
 	t_pxl				***pxl;
 	int					x_size;
 	int					y_size;
-	int					h_mod;
-	int					s_mod;
+	int					xy_mod;
+	int					z_mod;
 	int					x_deg;
 	int					y_deg;
 	int					z_deg;
@@ -58,5 +60,7 @@ void					read_map(t_data *data, char *file);
 int						*atoi_arr(char *line, int size);
 t_pxl					**pxl_arr(t_data *data, char *line, int y);
 void					map_size(t_data *data, char *file);
+
+void					resize_pxl(t_pxl *pxl, int xy_mod, int z_mod);
 
 #endif
