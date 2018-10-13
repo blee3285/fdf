@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 15:53:57 by blee              #+#    #+#             */
-/*   Updated: 2018/10/09 17:19:48 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/12 19:18:06 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ void	resize_all(t_data *data, int mult)
 	}
 }
 
-void	resize_pxl(t_pxl *pxl, int xy_mod, int z_mod)
+void	resize_pxl(t_data *data, t_pxl *pxl, int xy_mod, int z_mod)
 {
-	pxl->x = pxl->x_init * xy_mod;
-	pxl->y = pxl->y_init * xy_mod;
+	// need better way to center the map around the origin
+	pxl->x = (pxl->x_init * xy_mod) - ((data->x_size * xy_mod) / 2);
+	pxl->y = (pxl->y_init * xy_mod) - ((data->y_size * xy_mod) / 2);
 	pxl->z = pxl->z_init * z_mod;
 }

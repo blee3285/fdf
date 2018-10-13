@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/10/09 17:21:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/12 19:11:48 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	print_maparr(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->pxl[y][x]->z_init);
-			resize_pxl(data->pxl[y][x], 2, 2);
+			ft_printf("%d ", data->pxl[y][x]->y_init);
+			resize_pxl(data, data->pxl[y][x], 100, 100);
+			//rotate_pxl(data, data->pxl[y][x]);
 			x++;
 		}
 		ft_putchar('\n');
@@ -57,7 +58,7 @@ void	print_maparr2(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->pxl[y][x]->z);
+			ft_printf("%d ", data->pxl[y][x]->y);
 			x++;
 		}
 		ft_putchar('\n');
@@ -65,6 +66,20 @@ void	print_maparr2(t_data *data)
 	}
 }
 
+t_data	*init_data()
+{
+	t_data		*data;
+
+	data = (t_data*)malloc(sizeof(t_data));
+	data->x_size = 0;
+	data->y_size = 0;
+	data->xy_mod = 50;
+	data->z_mod = 50;
+	data->x_deg = 30;
+	data->y_deg = 0;
+	data->z_deg = 0;
+	return (data);
+}
 
 int		main(int ac, char **av)
 {
@@ -76,9 +91,7 @@ int		main(int ac, char **av)
 	t_data		*data;
 
 	i = 0;
-	data = (t_data*)malloc(sizeof(t_data));
-	data->x_size = 0;
-	data->y_size = 0;
+	data = init_data();
 	if (ac == 2)
 	{
 		map_size(data, av[1]);

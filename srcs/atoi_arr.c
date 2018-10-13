@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 18:22:42 by blee              #+#    #+#             */
-/*   Updated: 2018/10/03 17:04:39 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/12 19:05:11 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ int		*atoi_arr(char *line, int size)
 	return (arr);
 }
 
-t_pxl	*new_pxl(t_data *data, int height, int x, int y)
+t_pxl	*new_pxl(int height, int x, int y)
 {
 	t_pxl	*new;
 
 	new = (t_pxl*)malloc(sizeof(t_pxl));
-	new->x_init = x - (data->x_size / 2);
-	new->y_init = y - (data->y_size / 2);
+	new->x_init = x;
+	new->y_init = y;
 	new->z_init = height;
 	new->x = 0;
 	new->y = 0;
@@ -112,7 +112,7 @@ t_pxl	**pxl_arr(t_data *data, char *line, int y)
 	{
 		if (*temp == '-' || ft_isdigit(*temp))
 		{
-			pxls[i] = new_pxl(data, ft_atoi(temp), i, y);
+			pxls[i] = new_pxl(ft_atoi(temp), i, y);
 			while(*temp == '-' || ft_isdigit(*temp))
 				temp++;
 			i++;
