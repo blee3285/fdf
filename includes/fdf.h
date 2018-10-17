@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/10/12 19:05:39 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/16 16:38:22 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ typedef	struct			s_pxl
 
 typedef struct			s_data
 {
+	void				*mlx;
+	void				*win;
+	void				*img;
 	t_pxl				***pxl;
 	int					x_size;
 	int					y_size;
