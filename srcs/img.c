@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 15:22:25 by blee              #+#    #+#             */
-/*   Updated: 2018/10/16 17:11:38 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/22 01:59:24 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,17 @@ void	init_img(t_data *data)
 	data->img = mlx_new_image(data->mlx, width, height);
 }
 
-void	draw_img(t_data *data)
+int	win_pxl(int x, int dist)
+{
+	float	y;
+	float	z;
+
+	y = x;
+	z = dist;
+	return ((y / z) * (dist * 0.75));
+}
+
+void	draw_img(t_data *data, t_pxl *pxl)
 {
 	
 }
