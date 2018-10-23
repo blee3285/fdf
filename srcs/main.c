@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/10/12 19:11:48 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/22 16:19:59 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	print_maparr(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->pxl[y][x]->y_init);
+			ft_printf("%d ", data->pxl[y][x]->z_init);
 			resize_pxl(data, data->pxl[y][x], 100, 100);
-			//rotate_pxl(data, data->pxl[y][x]);
+			rotate_pxl(data, data->pxl[y][x]);
 			x++;
 		}
 		ft_putchar('\n');
@@ -58,7 +58,7 @@ void	print_maparr2(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->pxl[y][x]->y);
+			ft_printf("%d ", data->pxl[y][x]->z);
 			x++;
 		}
 		ft_putchar('\n');

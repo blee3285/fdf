@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 18:40:48 by blee              #+#    #+#             */
-/*   Updated: 2018/10/12 18:43:37 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/22 16:42:28 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ void	rotate_pxl(t_data *data, t_pxl *pxl)
 	temp_b = (pxl->y * cos(rad)) - (pxl->x * sin(rad));
 	pxl->x = round(temp_a);
 	pxl->y = round(temp_b);
+}
+
+int		win_pxl(int x, int dist)
+{
+	float	y;
+	float	z;
+	float	slope;
+
+	y = x;
+	z = dist;
+	slope = y / z;
+	return (round((slope * (z * 0.75))));
 }
