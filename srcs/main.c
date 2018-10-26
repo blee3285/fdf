@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/10/22 16:19:59 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/25 18:15:58 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,10 @@ int		main(int ac, char **av)
 		print_maparr(data);
 		ft_putchar('\n');
 		print_maparr2(data);
+		init_img(data);
+		data->img = mlx_new_image(data->mlx, 1080, 720);
+		pxl_to_img(data, 10, 10);
+		mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	}
 	/*
 	color = 0;
@@ -114,9 +118,9 @@ int		main(int ac, char **av)
 	mlx_pixel_put(mlx_ptr, win_ptr, 10, 10, color);
 	//img = mlx_new_image(mlx_ptr, 500, 500);
 	//mlx_put_image_to_window(mlx_ptr, win_ptr, img, 0, 0);
-	mlx_key_hook(win_ptr, &print_A, (void *)0);
-	mlx_mouse_hook(win_ptr, &print_A, (void *)0);
-	mlx_loop(mlx_ptr);
 	*/
+	mlx_key_hook(data->win, &print_A, (void *)0);
+	mlx_mouse_hook(data->win, &print_A, (void *)0);
+	mlx_loop(data->mlx);
 	return (0);
 }

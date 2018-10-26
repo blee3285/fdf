@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/01 18:08:58 by blee              #+#    #+#              #
-#    Updated: 2018/10/12 15:37:12 by blee             ###   ########.fr        #
+#    Updated: 2018/10/25 18:06:46 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,12 @@ LIB = -L ./libft -L ./mlx -lft -lmlx
 FRAME = -framework OpenGL -framework Appkit
 
 SRC_FILES = main.c \
-			atoi_arr.c \
+			pxl_arr.c \
 			read_map.c \
 			map_size.c \
 			resize.c \
 			rotate.c \
+			img.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

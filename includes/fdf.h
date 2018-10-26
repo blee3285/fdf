@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/10/16 16:38:22 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/25 18:11:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,11 @@ typedef struct			s_data
 void					read_map(t_data *data, char *file);
 int						*atoi_arr(char *line, int size);
 t_pxl					**pxl_arr(t_data *data, char *line, int y);
-void					map_size(t_data *data, char *file);
+int						map_size(t_data *data, char *file);
 void					rotate_pxl(t_data *data, t_pxl *pxl);
 void					resize_pxl(t_data *data, t_pxl *pxl, int xy_mod, int z_mod);
+
+void					pxl_to_img(t_data *data, int x, int y);
+void					init_img(t_data *data);
 
 #endif

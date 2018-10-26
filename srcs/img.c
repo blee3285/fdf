@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 15:22:25 by blee              #+#    #+#             */
-/*   Updated: 2018/10/22 19:13:07 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/25 18:11:55 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_img(t_data *data)
 	data->win = mlx_new_window(data->mlx, width, height, "fdf");
 }
 
-void	pxl_to_img(t_data *data, t_pxl *pxl)
+void	pxl_to_img(t_data *data, int x, int y)
 {
 	char	*addr;
 	int 	bbp;
@@ -33,13 +33,21 @@ void	pxl_to_img(t_data *data, t_pxl *pxl)
 	addr = mlx_get_data_addr(data->img, &bbp, &lsize, &end);
 	if (end == 0)
 	{
-		addr[pxl->y_win * lsize + pxl->y_win * (bbp / 8)] = 0xFF;
-		addr[pxl->y_win * lsize + pxl->y_win * (bbp / 8) + 1] = 0xFF;
-		addr[pxl->y_win * lsize + pxl->y_win * (bbp / 8) + 2] = 0xFF;
-		addr[pxl->y_win * lsize + pxl->y_win * (bbp / 8) + 3] = 0x00;
+		addr[y * lsize + x * (bbp / 8)] = 0xFF;
+		addr[y * lsize + x * (bbp / 8) + 1] = 0xFF;
+		addr[y * lsize + x * (bbp / 8) + 2] = 0xFF;
+		addr[y * lsize + x * (bbp / 8) + 3] = 0x0;
+	}
+	else if (end == 1)
+	{
+		addr[y * lsize + x * (bbp / 8)] = 0x0;
+		addr[y * lsize + x * (bbp / 8) + 1] = 0xFF;
+		addr[y * lsize + x * (bbp / 8) + 2] = 0xFF;
+		addr[y * lsize + x * (bbp / 8) + 3] = 0xFF;
 	}
 }
 
+/*
 void	draw_img(t_data *data)
 {
 	int		x;
@@ -58,3 +66,4 @@ void	draw_img(t_data *data)
 		y++;
 	}
 }
+*/
