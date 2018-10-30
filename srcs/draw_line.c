@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 17:59:20 by blee              #+#    #+#             */
-/*   Updated: 2018/10/25 19:13:20 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/29 17:28:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	left_right(t_data *data, t_pxl *a, t_pxl *b)
 	int		x;
 
 	x = a->x_win;
-	if (a->x_win > x->y_win)
+	if (a->x_win > b->y_win)
 	{
 		while (x != b->x_win)
 		{
@@ -59,7 +59,7 @@ void	left_right(t_data *data, t_pxl *a, t_pxl *b)
 
 }
 
-void	straight(t_data *data, t_pxl *a, t_pxl *b)
+void	st_line(t_data *data, t_pxl *a, t_pxl *b)
 {
 	if (a->x_win == b->x_win)
 		up_down(data, a, b);
@@ -67,7 +67,30 @@ void	straight(t_data *data, t_pxl *a, t_pxl *b)
 		left_right(data, a, b);
 }
 
-void	diagonal(t_data *data, t_pxl *a, t_pxl *b)
+float	get_slope(int x0, int y0, int x1, int y1)
 {
+	float	x;
+	float	y;
 
+	x = x1 - x0;
+	y = y1 - y0;
+	return (y / x);
+}
+
+void	di_line(t_data *data, t_pxl *a, t_pxl *b)
+{
+	float	slope;
+	float	temp_x;
+	int		x;
+	int		y;
+
+	x  = a->x_win;
+	slope = get_slope(a->x_win, a->y_win, b->x_win, b->y_win);
+	while (x <= b->x_win)
+	{
+		temp_x = x - a->x_win;
+		y = round(slope * temp_x) + a->y_win;
+		pxl_to_img(data, x, y);
+		x++;
+	}
 }

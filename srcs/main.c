@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/10/25 18:15:58 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/29 19:30:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	print_maparr(t_data *data)
 		while (x < data->x_size)
 		{
 			ft_printf("%d ", data->pxl[y][x]->z_init);
-			resize_pxl(data, data->pxl[y][x], 100, 100);
+			resize_pxl(data, data->pxl[y][x], data->xy_mod, data->z_mod);
 			rotate_pxl(data, data->pxl[y][x]);
 			x++;
 		}
@@ -58,7 +58,8 @@ void	print_maparr2(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->pxl[y][x]->z);
+			ft_printf("%d ", data->pxl[y][x]->x_win);
+			ft_printf("%d  ", data->pxl[y][x]->y_win);
 			x++;
 		}
 		ft_putchar('\n');
@@ -73,8 +74,8 @@ t_data	*init_data()
 	data = (t_data*)malloc(sizeof(t_data));
 	data->x_size = 0;
 	data->y_size = 0;
-	data->xy_mod = 50;
-	data->z_mod = 50;
+	data->xy_mod = 20;
+	data->z_mod = 20;
 	data->x_deg = 30;
 	data->y_deg = 0;
 	data->z_deg = 0;
@@ -103,7 +104,16 @@ int		main(int ac, char **av)
 		print_maparr2(data);
 		init_img(data);
 		data->img = mlx_new_image(data->mlx, 1080, 720);
-		pxl_to_img(data, 10, 10);
+		di_line(data, data->pxl[0][0], data->pxl[0][1]);
+		di_line(data, data->pxl[0][1], data->pxl[0][2]);
+		di_line(data, data->pxl[0][2], data->pxl[0][3]);
+		di_line(data, data->pxl[0][3], data->pxl[0][4]);
+		di_line(data, data->pxl[0][4], data->pxl[0][5]);
+		di_line(data, data->pxl[0][5], data->pxl[0][6]);
+		di_line(data, data->pxl[0][6], data->pxl[0][7]);
+		di_line(data, data->pxl[0][7], data->pxl[0][8]);
+		di_line(data, data->pxl[0][8], data->pxl[0][9]);
+		//draw_map(data);
 		mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	}
 	/*

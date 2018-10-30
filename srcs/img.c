@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 15:22:25 by blee              #+#    #+#             */
-/*   Updated: 2018/10/25 18:11:55 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/29 19:14:07 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,3 @@ void	pxl_to_img(t_data *data, int x, int y)
 		addr[y * lsize + x * (bbp / 8) + 3] = 0xFF;
 	}
 }
-
-/*
-void	draw_img(t_data *data)
-{
-	int		x;
-	int		y;
-
-	data->img = mlx_new_image(data->mlx, 1080, 720);
-	x = 0;
-	y = 0;
-	while (y < data->y_size)
-	{
-		x = 0;
-		while (x < data->x_size)
-		{
-			x++;
-		}
-		y++;
-	}
-}
-*/

@@ -6,11 +6,24 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 18:40:48 by blee              #+#    #+#             */
-/*   Updated: 2018/10/22 16:42:28 by blee             ###   ########.fr       */
+/*   Updated: 2018/10/29 18:05:26 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int		win_pxl(int x, int dist)
+{
+	float	y;
+	float	z;
+	float	slope;
+
+	y = x;
+	z = dist;
+	slope = y / z;
+	//add a variable for where the "screen" will be
+	return (round((slope * (400))));
+}
 
 void	rotate_pxl(t_data *data, t_pxl *pxl)
 {
@@ -33,16 +46,7 @@ void	rotate_pxl(t_data *data, t_pxl *pxl)
 	temp_b = (pxl->y * cos(rad)) - (pxl->x * sin(rad));
 	pxl->x = round(temp_a);
 	pxl->y = round(temp_b);
-}
-
-int		win_pxl(int x, int dist)
-{
-	float	y;
-	float	z;
-	float	slope;
-
-	y = x;
-	z = dist;
-	slope = y / z;
-	return (round((slope * (z * 0.75))));
+	//this is just to test the win_pxl function
+	pxl->x_win = win_pxl(pxl->x, 500 - pxl->z) + pxl->z + 200;
+	pxl->y_win = win_pxl(pxl->y, 500 - pxl->z) + pxl->z + 200;
 }
