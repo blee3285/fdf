@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 18:40:48 by blee              #+#    #+#             */
-/*   Updated: 2018/10/29 18:05:26 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/01 18:48:31 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ void	rotate_pxl(t_data *data, t_pxl *pxl)
 	pxl->x = round(temp_a);
 	pxl->y = round(temp_b);
 	//this is just to test the win_pxl function
-	pxl->x_win = win_pxl(pxl->x, 500 - pxl->z) + pxl->z + 200;
-	pxl->y_win = win_pxl(pxl->y, 500 - pxl->z) + pxl->z + 200;
+	pxl->x_win = win_pxl(pxl->x, 500 - pxl->z) + pxl->z + 250;
+	pxl->y_win = win_pxl(pxl->y, 500 - pxl->z) + pxl->z + 250;
 }
+/*
+void	new_coord(t_data *data, t_pxl *pxl)
+{
+
+}
+*/

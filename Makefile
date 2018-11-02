@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/01 18:08:58 by blee              #+#    #+#              #
-#    Updated: 2018/10/29 19:04:38 by blee             ###   ########.fr        #
+#    Updated: 2018/11/01 18:47:50 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_FILES = main.c \
 			rotate.c \
 			img.c \
 			draw_line.c \
+			draw_line2.c \
 			draw_map.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))

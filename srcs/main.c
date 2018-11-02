@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/10/29 19:30:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/01 19:04:57 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ t_data	*init_data()
 	data->x_size = 0;
 	data->y_size = 0;
 	data->xy_mod = 20;
-	data->z_mod = 20;
-	data->x_deg = 30;
+	data->z_mod = 5;
+	data->x_deg = 0;
 	data->y_deg = 0;
 	data->z_deg = 0;
 	return (data);
@@ -104,16 +104,7 @@ int		main(int ac, char **av)
 		print_maparr2(data);
 		init_img(data);
 		data->img = mlx_new_image(data->mlx, 1080, 720);
-		di_line(data, data->pxl[0][0], data->pxl[0][1]);
-		di_line(data, data->pxl[0][1], data->pxl[0][2]);
-		di_line(data, data->pxl[0][2], data->pxl[0][3]);
-		di_line(data, data->pxl[0][3], data->pxl[0][4]);
-		di_line(data, data->pxl[0][4], data->pxl[0][5]);
-		di_line(data, data->pxl[0][5], data->pxl[0][6]);
-		di_line(data, data->pxl[0][6], data->pxl[0][7]);
-		di_line(data, data->pxl[0][7], data->pxl[0][8]);
-		di_line(data, data->pxl[0][8], data->pxl[0][9]);
-		//draw_map(data);
+		draw_map(data);
 		mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	}
 	/*

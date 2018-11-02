@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 17:59:20 by blee              #+#    #+#             */
-/*   Updated: 2018/10/29 17:28:30 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/01 18:47:31 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	left_right(t_data *data, t_pxl *a, t_pxl *b)
 	int		x;
 
 	x = a->x_win;
-	if (a->x_win > b->y_win)
+	if (a->x_win > b->x_win)
 	{
 		while (x != b->x_win)
 		{
@@ -66,7 +66,7 @@ void	st_line(t_data *data, t_pxl *a, t_pxl *b)
 	else if (a->y_win == b->y_win)
 		left_right(data, a, b);
 }
-
+/*
 float	get_slope(int x0, int y0, int x1, int y1)
 {
 	float	x;
@@ -94,3 +94,4 @@ void	di_line(t_data *data, t_pxl *a, t_pxl *b)
 		x++;
 	}
 }
+*/
