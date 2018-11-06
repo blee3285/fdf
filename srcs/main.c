@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/11/01 19:04:57 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/05 16:02:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ t_data	*init_data()
 	data->x_size = 0;
 	data->y_size = 0;
 	data->xy_mod = 20;
-	data->z_mod = 5;
+	data->z_mod = 0;
+	data->dist = 500;
 	data->x_deg = 0;
 	data->y_deg = 0;
 	data->z_deg = 0;

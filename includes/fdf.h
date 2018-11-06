@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/10/29 19:05:10 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/05 15:39:38 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct			s_data
 	int					y_size;
 	int					xy_mod;
 	int					z_mod;
+	int					dist;
 	int					x_deg;
 	int					y_deg;
 	int					z_deg;
@@ -66,6 +67,7 @@ t_pxl					**pxl_arr(t_data *data, char *line, int y);
 int						map_size(t_data *data, char *file);
 void					rotate_pxl(t_data *data, t_pxl *pxl);
 int						win_pxl(int x, int dist);
+void					new_coord(t_data *data, t_pxl *pxl);
 void					resize_pxl(t_data *data, t_pxl *pxl, int xy_mod, int z_mod);
 
 void					pxl_to_img(t_data *data, int x, int y);
