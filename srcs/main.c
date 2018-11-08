@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/11/05 16:02:41 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/07 18:56:59 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	print_maparr(t_data *data)
 		x = 0;
 		while (x < data->x_size)
 		{
-			ft_printf("%d ", data->pxl[y][x]->z_init);
 			resize_pxl(data, data->pxl[y][x], data->xy_mod, data->z_mod);
+			ft_printf("%d %d %d  ", data->pxl[y][x]->x, data->pxl[y][x]->y, data->pxl[y][x]->z);
 			rotate_pxl(data, data->pxl[y][x]);
 			x++;
 		}
@@ -67,6 +67,16 @@ void	print_maparr2(t_data *data)
 	}
 }
 
+void	init_win(t_data *data)
+{
+	int		width;
+	int		height;
+
+	width = 1080;
+	height = 720;
+	data->win = mlx_new_window(data->mlx, width, height, "fdf");
+}
+
 t_data	*init_data()
 {
 	t_data		*data;
@@ -74,12 +84,13 @@ t_data	*init_data()
 	data = (t_data*)malloc(sizeof(t_data));
 	data->x_size = 0;
 	data->y_size = 0;
-	data->xy_mod = 20;
-	data->z_mod = 0;
+	data->xy_mod = 30;
+	data->z_mod = 10;
 	data->dist = 500;
 	data->x_deg = 0;
 	data->y_deg = 0;
 	data->z_deg = 0;
+	data->mlx = mlx_init();
 	return (data);
 }
 
@@ -100,13 +111,11 @@ int		main(int ac, char **av)
 		ft_printf("x size: %d\n", data->x_size);
 		ft_printf("y size: %d\n", data->y_size);
 		read_map(data, av[1]);
-		print_maparr(data);
-		ft_putchar('\n');
-		print_maparr2(data);
-		init_img(data);
-		data->img = mlx_new_image(data->mlx, 1080, 720);
-		draw_map(data);
-		mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+		resize(data);
+		init_win(data);
+		new_img(data);
+		mlx_key_hook(data->win, &keyboard, data);
+		mlx_loop(data->mlx);
 	}
 	/*
 	color = 0;
@@ -121,8 +130,5 @@ int		main(int ac, char **av)
 	//img = mlx_new_image(mlx_ptr, 500, 500);
 	//mlx_put_image_to_window(mlx_ptr, win_ptr, img, 0, 0);
 	*/
-	mlx_key_hook(data->win, &print_A, (void *)0);
-	mlx_mouse_hook(data->win, &print_A, (void *)0);
-	mlx_loop(data->mlx);
 	return (0);
 }

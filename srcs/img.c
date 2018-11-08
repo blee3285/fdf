@@ -6,22 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 15:22:25 by blee              #+#    #+#             */
-/*   Updated: 2018/11/01 16:31:28 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/07 18:18:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	init_img(t_data *data)
-{
-	int		width;
-	int		height;
-
-	width = 1080;
-	height = 720;
-	data->mlx = mlx_init();
-	data->win = mlx_new_window(data->mlx, width, height, "fdf");
-}
 
 void	pxl_to_img(t_data *data, int x, int y)
 {
@@ -45,4 +34,13 @@ void	pxl_to_img(t_data *data, int x, int y)
 		addr[y * lsize + x * (bbp / 8) + 2] = 0xFF;
 		addr[y * lsize + x * (bbp / 8) + 3] = 0xFF;
 	}
+}
+
+void	new_img(t_data *data)
+{
+	resize(data);
+	data->img = mlx_new_image(data->mlx, 1080, 720);
+	draw_map(data);
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	mlx_destroy_image(data->mlx, data->img);
 }
