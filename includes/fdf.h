@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/11/07 18:13:16 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/14 18:55:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,15 @@ typedef struct			s_data
 	t_pxl				***pxl;
 	int					x_size;
 	int					y_size;
+	int					z_size;
+	int					wd;
+	int					ht;
 	int					xy_mod;
 	int					z_mod;
-	int					dist;
 	int					x_deg;
 	int					y_deg;
 	int					z_deg;
+	int					spd;
 }						t_data;
 
 void					read_map(t_data *data, char *file);
