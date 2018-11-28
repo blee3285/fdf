@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/01 18:08:58 by blee              #+#    #+#              #
-#    Updated: 2018/11/07 17:38:24 by blee             ###   ########.fr        #
+#    Updated: 2018/11/27 16:21:15 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ SRC_FILES = main.c \
 			draw_line.c \
 			draw_line2.c \
 			draw_map.c \
-			key.c
+			key.c \
+			free.c \
+			output.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

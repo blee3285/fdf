@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/11/14 18:55:36 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/27 18:28:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct			s_data
 	int					spd;
 }						t_data;
 
-void					read_map(t_data *data, char *file);
+int						read_map(t_data *data, char *file);
 int						*atoi_arr(char *line, int size);
 t_pxl					**pxl_arr(t_data *data, char *line, int y);
 int						map_size(t_data *data, char *file);
@@ -83,4 +83,9 @@ void					di_line(t_data *data, t_pxl *a, t_pxl *b);
 void					draw_map(t_data *data);
 
 int						keyboard(int key, t_data *data);
+
+void					free_data(t_data *data);
+
+int						controls();
+int						error(int num, t_data *data);
 #endif

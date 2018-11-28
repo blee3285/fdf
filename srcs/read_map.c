@@ -6,13 +6,26 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:27:50 by blee              #+#    #+#             */
-/*   Updated: 2018/10/03 17:42:46 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/27 18:26:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	read_map(t_data *data, char *file)
+void	free_pxl_arr(t_pxl **arr)
+{
+	int		i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+int		read_map(t_data *data, char *file)
 {
 	int		fd;
 	int		out;
@@ -29,10 +42,13 @@ void	read_map(t_data *data, char *file)
 		{
 			if (buff)
 				free(buff);
-			return ;
+			return (1);
 		}
 		data->pxl[i] = pxl_arr(data, buff, i);
+		if (!data->pxl[i])
+			return(3);
 		i++;
 	}
 	close(fd);
+	return (0);
 }

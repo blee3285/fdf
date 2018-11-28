@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:29:11 by blee              #+#    #+#             */
-/*   Updated: 2018/11/14 19:11:00 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/27 16:13:22 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ void	reset(t_data *data)
 int		keyboard(int key, t_data *data)
 {
 	if (key == 53)
+	{
+		free_data(data);
 		exit(0);
+	}
 	angles(key, data);
 	size(key, data);
 	speed(key, data);

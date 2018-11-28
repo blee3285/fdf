@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/11/14 18:55:24 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/27 16:42:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,6 @@ t_data	*init_data()
 
 int		main(int ac, char **av)
 {
-	//void		*mlx_ptr;
-	//void		*win_ptr;
-	//int		color;
-	//void		*img;
 	int			i;
 	t_data		*data;
 
@@ -134,18 +130,5 @@ int		main(int ac, char **av)
 		mlx_key_hook(data->win, &keyboard, data);
 		mlx_loop(data->mlx);
 	}
-	/*
-	color = 0;
-	color += 255;
-	color = color << 8;
-	color += 255;
-	color = color << 8;
-	color += 255;
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "test");
-	mlx_pixel_put(mlx_ptr, win_ptr, 10, 10, color);
-	//img = mlx_new_image(mlx_ptr, 500, 500);
-	//mlx_put_image_to_window(mlx_ptr, win_ptr, img, 0, 0);
-	*/
 	return (0);
 }
