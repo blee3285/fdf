@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 15:22:25 by blee              #+#    #+#             */
-/*   Updated: 2018/11/27 19:04:22 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/30 18:15:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,29 @@ void	pxl_to_img(t_data *data, int x, int y)
 	int 	bbp;
 	int		lsize;
 	int		end;
+	int		i;
 
+	if (x < 0 || y < 0 || x > data->wd || y > data->ht)
+		return ;
+	i = 0;
 	addr = mlx_get_data_addr(data->img, &bbp, &lsize, &end);
 	if (end == 0)
 	{
-		addr[y * lsize + x * (bbp / 8)] = 0xFF;
-		addr[y * lsize + x * (bbp / 8) + 1] = 0xFF;
-		addr[y * lsize + x * (bbp / 8) + 2] = 0xFF;
-		addr[y * lsize + x * (bbp / 8) + 3] = 0x0;
-	}
-	else if (end == 1)
-	{
-		addr[y * lsize + x * (bbp / 8)] = 0x0;
-		addr[y * lsize + x * (bbp / 8) + 1] = 0xFF;
-		addr[y * lsize + x * (bbp / 8) + 2] = 0xFF;
-		addr[y * lsize + x * (bbp / 8) + 3] = 0xFF;
+		while (i < (bbp / 8))
+		{
+			addr[y * lsize + x * (bbp / 8) + i] = 0xFF;
+			addr[y * lsize + x * (bbp / 8) + i + 1] = 0xFF;
+			addr[y * lsize + x * (bbp / 8) + i + 2] = 0xFF;
+			addr[y * lsize + x * (bbp / 8) + i + 3] = 0x0;
+			i += 4;
+		}
 	}
 }
 
 void	new_img(t_data *data)
 {
 	resize(data);
-	data->img = mlx_new_image(data->mlx, 1080, 720);
+	data->img = mlx_new_image(data->mlx, data->wd, data->ht);
 	draw_map(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	mlx_destroy_image(data->mlx, data->img);

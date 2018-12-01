@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:29:11 by blee              #+#    #+#             */
-/*   Updated: 2018/11/27 16:13:22 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/30 19:09:39 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int		keyboard(int key, t_data *data)
 	if (key == 15)
 		reset(data);
 	new_img(data);
+	//angle_display(data);
 	ft_printf("x: %d  y: %d  z: %d\n", data->x_deg, data->y_deg, data->z_deg);
 	return (0);
 }

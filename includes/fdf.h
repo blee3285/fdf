@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/11/27 18:28:41 by blee             ###   ########.fr       */
+/*   Updated: 2018/11/30 18:42:33 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef	struct			s_pxl
 	int					z;
 	int					x_win;
 	int					y_win;
-}						t_pxl;	
+}						t_pxl;
 
 typedef struct			s_data
 {
@@ -88,4 +88,6 @@ void					free_data(t_data *data);
 
 int						controls();
 int						error(int num, t_data *data);
+
+void					angle_display(t_data *data);
 #endif
