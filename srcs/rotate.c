@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 18:40:48 by blee              #+#    #+#             */
-/*   Updated: 2018/11/14 18:24:09 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/04 17:21:04 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int		win_pxl(int x, int dist)
 	y = x;
 	z = dist;
 	slope = y / z;
-	//add a variable for where the "screen" will be
-	return (round((slope * (900))));
+	return (round(slope * (900)));
 }
 
 void	rotate_pxl(t_data *data, t_pxl *pxl)

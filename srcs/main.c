@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/11/30 17:54:37 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/04 17:23:32 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ int		main(int ac, char **av)
 		ft_printf("y size: %d\n", data->y_size);
 		read_map(data, av[1]);
 		init_win(data);
+		ft_printf("win size: %d %d\n", data->wd, data->ht);
 		resize(data);
 		new_img(data);
 		mlx_key_hook(data->win, &keyboard, data);

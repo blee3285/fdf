@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/11/30 18:42:33 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/04 18:19:01 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void					resize(t_data *data);
 void					resize_pxl(t_data *data, t_pxl *pxl, int xy_mod, int z_mod);
 
 void					pxl_to_img(t_data *data, int x, int y);
+void					color_pxl(t_data *data, int x, int y, int *col);
 void					new_img(t_data *data);
 
 void					st_line(t_data *data, t_pxl *a, t_pxl *b);
