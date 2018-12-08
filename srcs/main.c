@@ -6,66 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/12/04 17:23:32 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/07 19:46:44 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int		print_A(int key, void *param)
-{
-	void	*z;
-
-	z = param;
-	ft_putnbr(key);
-	ft_putchar(' ');
-	if (key == 53)
-		exit(0);
-	return (0);
-}
-
-void	print_maparr(t_data *data)
-{
-	int		x;
-	int		y;
-
-	x = 0;
-	y = 0;
-	while (y < data->y_size)
-	{
-		x = 0;
-		while (x < data->x_size)
-		{
-			resize_pxl(data, data->pxl[y][x], data->xy_mod, data->z_mod);
-			ft_printf("%d %d %d  ", data->pxl[y][x]->x, data->pxl[y][x]->y, data->pxl[y][x]->z);
-			rotate_pxl(data, data->pxl[y][x]);
-			x++;
-		}
-		ft_putchar('\n');
-		y++;
-	}
-}
-
-void	print_maparr2(t_data *data)
-{
-	int		x;
-	int		y;
-
-	x = 0;
-	y = 0;
-	while (y < data->y_size)
-	{
-		x = 0;
-		while (x < data->x_size)
-		{
-			ft_printf("%d ", data->pxl[y][x]->x_win);
-			ft_printf("%d  ", data->pxl[y][x]->y_win);
-			x++;
-		}
-		ft_putchar('\n');
-		y++;
-	}
-}
 
 void	init_win(t_data *data)
 {
@@ -77,8 +22,6 @@ void	init_win(t_data *data)
 		max = data->x_size;
 	else
 		max = data->y_size;
-	//if (data->z_size > max)
-	//	max = data->z_size;
 	width = max * 10;
 	if (width > 1920)
 		width = 1920;
@@ -108,6 +51,11 @@ t_data	*init_data()
 	data->z_deg = 0;
 	data->mlx = mlx_init();
 	data->spd = 1;
+	data->red = 255;
+	data->green = 255;
+	data->blue = 255;
+	data->p = 1;
+	data->mode = 1;
 	return (data);
 }
 
@@ -120,13 +68,13 @@ int		main(int ac, char **av)
 	data = init_data();
 	if (ac == 2)
 	{
-		map_size(data, av[1]);
-		ft_printf("x size: %d\n", data->x_size);
-		ft_printf("y size: %d\n", data->y_size);
-		read_map(data, av[1]);
+		error(map_size(data, av[1]), data);
+		error(read_map(data, av[1]), data);
+		ft_printf("\nsize: %d %d\n", data->x_size, data->y_size);
 		init_win(data);
 		ft_printf("win size: %d %d\n", data->wd, data->ht);
 		resize(data);
+		controls();
 		new_img(data);
 		mlx_key_hook(data->win, &keyboard, data);
 		mlx_loop(data->mlx);

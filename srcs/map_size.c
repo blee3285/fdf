@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 15:25:52 by blee              #+#    #+#             */
-/*   Updated: 2018/10/25 17:07:00 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/07 19:47:46 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		map_size(t_data *data, char *file)
 		{
 			if (buff)
 				free(buff);
-			return (0);
+			return (1);
 		}
 		len = line_size(buff);
 		if (data->y_size == 0)
@@ -55,8 +55,8 @@ int		map_size(t_data *data, char *file)
 		data->y_size += 1;
 		free(buff);
 		if (len != data->x_size)
-			return (0);
+			return (2);
 	}
 	close(fd);
-	return (1);
+	return (0);
 }

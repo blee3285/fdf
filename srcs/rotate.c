@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 18:40:48 by blee              #+#    #+#             */
-/*   Updated: 2018/12/04 17:21:04 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/07 18:15:57 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ void	rotate_pxl(t_data *data, t_pxl *pxl)
 
 void	new_coord(t_data *data, t_pxl *pxl)
 {
-	pxl->x_win = win_pxl(pxl->x, 1000 - pxl->z) + (data->wd / 2);
-	pxl->y_win = win_pxl(pxl->y, 1000 - pxl->z) + (data->ht / 2);
+	if (data->p == 1)
+	{
+		pxl->x_win = win_pxl(pxl->x, 1000 - pxl->z) + (data->wd / 2);
+		pxl->y_win = win_pxl(pxl->y, 1000 - pxl->z) + (data->ht / 2);
+	}
+	else
+	{	
+		pxl->x_win = pxl->x + (data->wd / 2);
+		pxl->y_win = pxl->y + (data->ht / 2);
+	}
 }

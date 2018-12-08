@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/12/04 18:19:01 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/07 18:53:07 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ typedef struct			s_data
 	int					y_deg;
 	int					z_deg;
 	int					spd;
+	int					red;
+	int					green;
+	int					blue;
+	int					p;
+	int					mode;
 }						t_data;
 
 int						read_map(t_data *data, char *file);
@@ -91,4 +96,5 @@ int						controls();
 int						error(int num, t_data *data);
 
 void					angle_display(t_data *data);
+void					colors(int key, t_data *data);
 #endif

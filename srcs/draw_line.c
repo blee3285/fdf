@@ -6,37 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 17:59:20 by blee              #+#    #+#             */
-/*   Updated: 2018/12/04 19:03:44 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/07 16:32:03 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-/*
-void	calc_color(int min, int max, int cur, int **col)
-{
-	if (cur < min)
-	{
-	}
-	else if (cur == min)
-	{
-	}
-	else if (cur == max)
-	{
-	}
-	else
-	{
-	}
-}
-*/
-void	cpxl_to_img(t_data *data, t_pxl *a, t_pxl *b, int x, int y)
-{
-	int		col[3];
-
-	col[0] = 0;
-	col[1] = 128;
-	col[2] = 0;
-	color_pxl(data, x, y, col);
-}
 
 void	up_down(t_data *data, t_pxl *a, t_pxl *b)
 {
