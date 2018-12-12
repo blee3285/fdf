@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 15:53:57 by blee              #+#    #+#             */
-/*   Updated: 2018/11/14 17:15:03 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:18:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	resize(t_data *data)
 	}
 }
 
-void	resize_pxl(t_data *data, t_pxl *pxl, int xy_mod, int z_mod)
+void	resize_pxl(t_data *data, t_pxl *pxl, int xy, int z)
 {
-	pxl->x = (pxl->x_init * xy_mod) - (((data->x_size - 1) * xy_mod) / 2);
-	pxl->y = (pxl->y_init * xy_mod) - (((data->y_size - 1) * xy_mod) / 2);
-	pxl->z = pxl->z_init * z_mod;
+	pxl->x = (pxl->x_init * xy) - (((data->x_size - 1) * xy) / 2);
+	pxl->y = (pxl->y_init * xy) - (((data->y_size - 1) * xy) / 2);
+	pxl->z = pxl->z_init * z;
 }

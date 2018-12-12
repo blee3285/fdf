@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:29:11 by blee              #+#    #+#             */
-/*   Updated: 2018/12/07 19:32:26 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:11:26 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	angles(int key, t_data *data)
 	else if (key == 1)
 		data->x_deg -= (10 * data->spd);
 	else if (key == 14)
-		data->z_deg -= (10* data->spd);
+		data->z_deg -= (10 * data->spd);
 	else if (key == 12)
 		data->z_deg = (data->z_deg + (10 * data->spd)) % 360;
 	if (data->y_deg < 0)

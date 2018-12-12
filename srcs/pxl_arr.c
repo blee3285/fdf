@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 18:22:42 by blee              #+#    #+#             */
-/*   Updated: 2018/11/14 15:52:31 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:15:55 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		*atoi_arr(char *line, int size)
 		if (*temp == '-' || ft_isdigit(*temp))
 		{
 			arr[i] = ft_atoi(temp);
-			while(*temp == '-' || ft_isdigit(*temp))
+			while (*temp == '-' || ft_isdigit(*temp))
 				temp++;
 			i++;
 		}
@@ -105,8 +105,6 @@ t_pxl	**pxl_arr(t_data *data, char *line, int y)
 
 	i = 0;
 	temp = line;
-	if (!valid_line(line))
-		return (NULL);
 	pxls = (t_pxl**)malloc(sizeof(t_pxl*) * (data->x_size + 1));
 	if (!pxls)
 		return (NULL);
@@ -115,11 +113,11 @@ t_pxl	**pxl_arr(t_data *data, char *line, int y)
 		if (*temp == '-' || ft_isdigit(*temp))
 		{
 			pxls[i] = new_pxl(data, ft_atoi(temp), i, y);
-			while(*temp == '-' || ft_isdigit(*temp))
+			while (*temp == '-' || ft_isdigit(*temp))
 				temp++;
 			i++;
 		}
-		if(*temp && *temp != '\n')
+		if (*temp && *temp != '\n')
 			temp++;
 	}
 	return (pxls);

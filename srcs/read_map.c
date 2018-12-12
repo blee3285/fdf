@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:27:50 by blee              #+#    #+#             */
-/*   Updated: 2018/12/07 19:14:39 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:10:39 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ int		read_map(t_data *data, char *file)
 		}
 		data->pxl[i] = pxl_arr(data, buff, i);
 		if (!data->pxl[i])
-			return(3);
+			return (4);
 		i++;
+		free(buff);
 	}
 	close(fd);
 	return (0);

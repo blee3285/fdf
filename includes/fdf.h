@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/12/07 18:53:07 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:18:16 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct			s_map_lst
 	int					size;
 	struct s_map_lst	*next;
 }						t_map_lst;
-
 
 typedef struct			s_map_arr
 {
@@ -76,9 +75,10 @@ int						map_size(t_data *data, char *file);
 void					rotate_pxl(t_data *data, t_pxl *pxl);
 int						win_pxl(int x, int dist);
 void					new_coord(t_data *data, t_pxl *pxl);
+int						valid_line(char *line);
 
 void					resize(t_data *data);
-void					resize_pxl(t_data *data, t_pxl *pxl, int xy_mod, int z_mod);
+void					resize_pxl(t_data *data, t_pxl *pxl, int xy, int z);
 
 void					pxl_to_img(t_data *data, int x, int y);
 void					color_pxl(t_data *data, int x, int y, int *col);
@@ -92,7 +92,7 @@ int						keyboard(int key, t_data *data);
 
 void					free_data(t_data *data);
 
-int						controls();
+int						controls(void);
 int						error(int num, t_data *data);
 
 void					angle_display(t_data *data);

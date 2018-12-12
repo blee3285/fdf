@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 18:35:35 by blee              #+#    #+#             */
-/*   Updated: 2018/12/07 18:52:04 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:13:42 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	colors(int key, t_data *data)
 {
 	if (key == 12)
-		data-> red += 20;
+		data->red += 20;
 	else if (key == 0)
 		data->red -= 20;
 	else if (key == 13)

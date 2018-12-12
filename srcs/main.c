@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:31:24 by blee              #+#    #+#             */
-/*   Updated: 2018/12/07 19:46:44 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:14:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_win(t_data *data)
 	data->win = mlx_new_window(data->mlx, width, height, "fdf");
 }
 
-t_data	*init_data()
+t_data	*init_data(void)
 {
 	t_data		*data;
 
@@ -70,9 +70,7 @@ int		main(int ac, char **av)
 	{
 		error(map_size(data, av[1]), data);
 		error(read_map(data, av[1]), data);
-		ft_printf("\nsize: %d %d\n", data->x_size, data->y_size);
 		init_win(data);
-		ft_printf("win size: %d %d\n", data->wd, data->ht);
 		resize(data);
 		controls();
 		new_img(data);

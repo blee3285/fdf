@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 15:22:25 by blee              #+#    #+#             */
-/*   Updated: 2018/12/07 16:37:19 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:12:26 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pxl_to_img(t_data *data, int x, int y)
 {
 	char	*addr;
-	int 	bbp;
+	int		bbp;
 	int		lsize;
 	int		end;
 	int		i;
@@ -44,5 +44,4 @@ void	new_img(t_data *data)
 	draw_map(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	mlx_destroy_image(data->mlx, data->img);
-	//angle_display(data);
 }

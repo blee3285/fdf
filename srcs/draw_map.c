@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 18:22:52 by blee              #+#    #+#             */
-/*   Updated: 2018/11/07 17:56:33 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/11 19:15:15 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		is_straight(t_pxl *a, t_pxl *b)
 
 void	connect_pxl(t_data *data, t_pxl *a, t_pxl *b)
 {
-	//ft_printf("Connecting [%d, %d] to [%d, %d]\n", a->x_win, a->y_win, b->x_win, b->y_win);
 	if (is_straight(a, b))
 		st_line(data, a, b);
 	else
