@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:29:11 by blee              #+#    #+#             */
-/*   Updated: 2018/12/11 19:11:26 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/13 17:56:25 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,27 +75,26 @@ void	speed(int key, t_data *data)
 	}
 }
 
-void	reset(t_data *data)
+void	reset(int key, t_data *data)
 {
-	data->x_deg = 0;
-	data->y_deg = 0;
-	data->z_deg = 0;
-	data->spd = 1;
-	data->xy_mod = (data->wd / 3) / data->x_size;
-	data->z_mod = 2;
-	data->red = 255;
-	data->green = 255;
-	data->blue = 255;
-	data->p = 1;
+	if (key == 15)
+	{
+		data->x_deg = 0;
+		data->y_deg = 0;
+		data->z_deg = 0;
+		data->spd = 1;
+		data->xy_mod = (data->wd / 3) / data->x_size;
+		data->z_mod = 2;
+		data->red = 255;
+		data->green = 255;
+		data->blue = 255;
+		data->p = 1;
+	}
 }
 
 int		keyboard(int key, t_data *data)
 {
-	if (key == 53)
-	{
-		free_data(data);
-		exit(0);
-	}
+	free_data(key, data);
 	if (key == 257)
 	{
 		if (data->mode == 1)
@@ -109,8 +108,8 @@ int		keyboard(int key, t_data *data)
 		colors(key, data);
 	size(key, data);
 	speed(key, data);
-	if (key == 15)
-		reset(data);
+	reset(key, data);
+	iso(key, data);
 	new_img(data);
 	return (0);
 }

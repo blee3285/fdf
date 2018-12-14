@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 15:51:56 by blee              #+#    #+#             */
-/*   Updated: 2018/12/11 19:13:08 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/13 19:07:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int		controls(void)
 	ft_printf("Speed:\n 1/2/3 -> slow/faster/fastest\n\n");
 	ft_printf("Color Mode:\n shift -> switch modes\n q/a -> red\n");
 	ft_printf(" w/s -> green\n e/d -> blue\n\n");
-	ft_printf("Press 'z' for parallel projection\nPress 'r' to reset\n");
+	ft_printf("Press 'z' for parallel projection\n");
+	ft_printf("Press 'x' for isometric projection\nPress 'r' to reset\n");
 	return (0);
 }
 

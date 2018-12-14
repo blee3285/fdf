@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 18:36:43 by blee              #+#    #+#             */
-/*   Updated: 2018/12/11 19:18:16 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/13 17:56:03 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,12 @@ void					draw_map(t_data *data);
 
 int						keyboard(int key, t_data *data);
 
-void					free_data(t_data *data);
+void					free_data(int key, t_data *data);
 
 int						controls(void);
 int						error(int num, t_data *data);
 
 void					angle_display(t_data *data);
 void					colors(int key, t_data *data);
+void					iso(int key, t_data *data);
 #endif

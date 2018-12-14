@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:30:28 by blee              #+#    #+#             */
-/*   Updated: 2018/12/11 19:36:01 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/13 17:33:20 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,13 @@ void	free_pxl(t_data *data)
 	free(data->pxl);
 }
 
-void	free_data(t_data *data)
+void	free_data(int key, t_data *data)
 {
-	free_pxl(data);
-	mlx_destroy_window(data->mlx, data->win);
-	free(data->mlx);
-	free(data);
+	if (key == 53)
+	{
+		free_pxl(data);
+		mlx_destroy_window(data->mlx, data->win);
+		free(data);
+		exit(0);
+	}
 }

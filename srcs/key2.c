@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 18:35:35 by blee              #+#    #+#             */
-/*   Updated: 2018/12/11 19:13:42 by blee             ###   ########.fr       */
+/*   Updated: 2018/12/13 18:38:53 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,15 @@ void	colors(int key, t_data *data)
 		data->blue = 255;
 	if (data->green > 255)
 		data->green = 255;
+}
+
+void	iso(int key, t_data *data)
+{
+	if (key == 7)
+	{
+		data->p = 0;
+		data->x_deg = 32;
+		data->y_deg = 330;
+		data->z_deg = 325;
+	}
 }
